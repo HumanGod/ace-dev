@@ -15,7 +15,7 @@ elseif( CLIENT )then
 		MsgC( color or color_white, msg..'\n' )
 	end
 	
-	function dayz.error( msg, color )
+    function dayz.error( msg, color )
 		MsgC( Color(255,50,50), '[Day-Z Error] ' )
 		MsgC( color or color_white, msg..'\n' )
 		chat.AddText(Color(255,50,50), '[Day-Z Error] ', color or color_white, msg)

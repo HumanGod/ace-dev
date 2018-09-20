@@ -4,27 +4,30 @@ local allWeps = {"tfa_mwr_44mag", "tfa_mwr_ak47", "tfa_mwr_ak74u", "tfa_mwr_bos1
 local allAmmo = {"pistol", "smg1", "rifle", "buckshot"}
 
 function GM:PlayerSpawn( ply )
-    
+    --Load hands server side?
 	ply:SetupHands()
-    
+    --Remove ammo when spawn
 	for k,v in pairs(allAmmo) do
 		ply:RemoveAmmo(99999,v)
 	end
-    
+    --Give all weapons & default amount of ammo
 	for k,v in pairs(allWeps) do
 		ply:Give(v)
 	end
-    
+    --Set walk/run speed
 	ply:SetWalkSpeed(150)
 	ply:SetRunSpeed(200)
-    
+    --Set model for testing
 	ply:SetModel("models/player/kleiner.mdl")
     
 end
 
 function GM:PlayerInitialSpawn( ply )
+    --[[For some reason we need to delay this because of the ChatBox]]
+    timer.Simple(30, function()
+        ply:ChatPrint("[blue]Welcome to IcebergRP's Custom Day-Z!")
+        ply:ChatPrint("[red]This is still in the VERY early alpha stage!")
+        ply:ChatPrint("[red]Nothing on the network side has been coded yet!")
+    end)
     
-	ply:ChatPrint("Welcome to Creative Minds Custom Day-Z Server!")
-	ply:ChatPrint("Our current gamemode version is: 0.12a")
-
 end
